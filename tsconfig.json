@@ -7,6 +7,6 @@
     "strict": true,
     "target": "es2015"
   },
-  "include": ["binary-search"],
+  "include": ["**/index.ts"],
   "exclude": ["**/*.test.ts"]
 }

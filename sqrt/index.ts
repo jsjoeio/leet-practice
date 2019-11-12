@@ -4,12 +4,6 @@ const INCREMENT = 0.3;
  * @return {number}
  */
 export function mySqrt(x: number) {
-  // also called min
-  let left = 0;
-  // also called max
-  let right = x - INCREMENT;
-  // We'll start at 0
-  let count = 0;
   let bestGuess = x / 2.0;
 
   function calculateSqRoot(num: number, guess: number) {
