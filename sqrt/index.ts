@@ -9,28 +9,25 @@ export function mySqrt(x: number) {
   // also called max
   let right = x - INCREMENT;
   // We'll start at 0
-  let guess = 0;
   let count = 0;
+  let bestGuess = x / 2.0;
 
-  function calculateSqRoot(num: number) {
-    guess = (left + right) / 2;
-    console.log({ left, right, guess, count });
-    // we'll add our base case to our recursive function
-    // we want to stop
-    const squared = guess * guess;
-    if (squared === num || count === 8) {
+  function calculateSqRoot(num: number, guess: number) {
+    // Divide the num by our guess
+    const divided = num / guess;
+
+    // Get the average after adding the divided + our guess
+    const average = (divided + guess) / 2.0;
+
+    if (average === guess) {
+      // The new guess is the best we got.
+      bestGuess = guess;
       return;
-    } else if (squared < num) {
-      // if our number is too low
-      // move it more to the right
-      left = left + INCREMENT;
-    } else {
-      right = right - INCREMENT;
     }
-    count++;
-    calculateSqRoot(x);
+    // Otherwise, keep going
+    calculateSqRoot(x, average);
   }
   // Init recursive function
-  calculateSqRoot(x);
-  return Math.abs(Math.floor(guess));
+  calculateSqRoot(x, bestGuess);
+  return Math.abs(Math.floor(bestGuess));
 }

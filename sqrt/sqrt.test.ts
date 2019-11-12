@@ -1,7 +1,7 @@
 import { mySqrt } from './';
 
 describe('mySqrt function', () => {
-  it.skip('should return an integer', () => {
+  it('should return an integer', () => {
     const input = 4;
     const expected = 2;
     const actual = mySqrt(input);
