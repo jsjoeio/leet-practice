@@ -1,1 +1,3 @@
-function binarySearch(items)
+function binarySearch(items) {
+  //
+}
