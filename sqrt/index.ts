@@ -1,27 +1,35 @@
-const INCREMENT = 0.3;
 /**
  * @param {number} x
  * @return {number}
  */
 export function mySqrt(x: number) {
-  let bestGuess = x / 2.0;
+  let result = 0;
 
-  function calculateSqRoot(num: number, guess: number) {
-    // Divide the num by our guess
-    const divided = num / guess;
-
-    // Get the average after adding the divided + our guess
-    const average = (divided + guess) / 2.0;
-
-    if (average === guess) {
-      // The new guess is the best we got.
-      bestGuess = guess;
-      return;
-    }
-    // Otherwise, keep going
-    calculateSqRoot(x, average);
+  // The square root of 0 and 1 is equal to itself
+  if (x === 0 || x === 1) {
+    return x;
   }
-  // Init recursive function
-  calculateSqRoot(x, bestGuess);
-  return Math.abs(Math.floor(bestGuess));
+
+  let left = 0;
+  let right = x;
+
+  while (left <= right) {
+    // Grab the number in the midle
+    let middle = (left + right) / 2;
+
+    // Round down
+    let middleSquared = Math.floor(middle * middle);
+    if (middleSquared === x) {
+      return Math.floor(middle);
+    }
+
+    if (middleSquared < x) {
+      left = middle + 0.0001;
+      result = middle;
+    } else {
+      right = middle - 0.0001;
+    }
+  }
+
+  return Math.abs(Math.floor(result));
 }
