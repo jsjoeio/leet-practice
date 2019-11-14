@@ -1,4 +1,4 @@
-import { mySqrt } from './';
+import { mySqrt } from '.';
 
 describe('mySqrt function', () => {
   it('should return an integer', () => {

@@ -7,6 +7,6 @@
     "strict": true,
     "target": "es2015"
   },
-  "include": ["**/index.ts"],
-  "exclude": ["**/*.test.ts"]
+  "include": ["src"],
+  "exclude": ["**/*.test.ts", "_templates"]
 }
