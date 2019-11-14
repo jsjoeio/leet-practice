@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build-ts": "tsc",
+    "g:problem": "hygen problem new --name",
     "test": "jest",
     "test:watch": "jest --watch"
   },
