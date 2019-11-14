@@ -2,7 +2,6 @@
 to: src/<%= h.changeCase.camel(name) %>/<%= h.changeCase.camel(name) %>.test.ts
 ---
 <% problem = h.changeCase.camel(name) -%>
-
 import { <%= problem %> } from '.';
 
 describe('<%= problem %> function', () => {
