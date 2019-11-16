@@ -26,38 +26,41 @@ function logicGate(gate: OneInputGate, inputA: Input): Output;
 function logicGate(gate: TwoInputGate, inputA: Input, inputB: Input): Output;
 function logicGate(gate: Gate, inputA: Input, inputB?: Input): Output {
   // If we don't have inputB, then we know it's a OneInputGate
-  if (!inputB) {
+  if (typeof inputB === 'undefined') {
     switch (gate) {
-      case 'YES': {
-        // do the logic checking
-      }
-      case 'NOT': {
-        // do the logic checking
-      }
+      case 'YES':
+        // This logic gate returns the same input as output
+        return inputA;
+      case 'NOT':
+        // Return the oppositive of what we get
+        return inputA ? 0 : 1;
       default:
         throw new Error('Invalid logic gate');
     }
   }
 
   switch (gate) {
-    case 'AND': {
+    case 'AND':
+      // Both inputs must be true to return 1
+      return inputA && inputB ? 1 : 0;
+    case 'OR':
+      // Either input should be true to return 1
+      return inputA || inputB ? 1 : 0;
+    case 'XOR':
+      // Check that they are not the same and return 1
+      // (mutually exclusive) they can never be the same.
+      return inputA !== inputB ? 1 : 0;
+    case 'NAND':
+      // The negation of "and"
+      // Demorgan's Law
+      return !(inputA && inputB) ? 1 : 0;
+    case 'NOR':
+      // The negation of "or"
       // do the logic checking
-    }
-    case 'OR': {
-      // do the logic checking
-    }
-    case 'XOR': {
-      // do the logic checking
-    }
-    case 'NAND': {
-      // do the logic checking
-    }
-    case 'NOR': {
-      // do the logic checking
-    }
-    case 'XNOR': {
-      // do the logic checking
-    }
+      return !(inputA || inputB) ? 1 : 0;
+    case 'XNOR':
+      // Are they equal inputs? Then return 1
+      return inputA === inputB ? 1 : 0;
     default:
       throw new Error('Invalid logic gate');
   }
