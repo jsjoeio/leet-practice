@@ -71,3 +71,5 @@ export function twoSumFaster(nums: number[], target: number) {
 
   return false;
 }
+
+/* The loop grows based on the size of the length */
