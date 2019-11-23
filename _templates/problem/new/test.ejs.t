@@ -9,7 +9,7 @@ describe('<%= problem %> function', () => {
     // Add test here
     // const input = 4;
     // const expected = 2;
-    // const actual = mySqrt(input);
+    // const actual = <%= problem %>(input);
     // expect(actual).toBe(expected);
   });
 });
